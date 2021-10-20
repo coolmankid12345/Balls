@@ -32,35 +32,39 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((Math.Abs(rb.velocity.x) <= .05)&& (Math.Abs(rb.velocity.y) <= .0001)) //Fake friction
+        if ((Math.Abs(rb.velocity.x) <= .05) && (Math.Abs(rb.velocity.y) <= .0001)) //Fake friction
         {
-            rb.velocity = new Vector2(0,0);
+            rb.velocity = new Vector2(0, 0);
 
         }
-        if (Input.GetMouseButtonDown(0) && rb.velocity.y == 0 && rb.velocity.x == 0) 
-        {
-            startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
-            startPoint.z = 15;
-        }
 
-        if (Input.GetMouseButton(0) && rb.velocity.y == 0 && rb.velocity.x == 0)
+        if (rb.velocity.y == 0 && rb.velocity.x == 0)
         {
-            Vector3 currentPoint = cam.ScreenToWorldPoint(Input.mousePosition);
-            currentPoint.z = 15;
-            tl.RenderLine(startPoint, currentPoint);
-        }
+            if (Input.GetMouseButtonDown(0))
+            {
+                startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
+                startPoint.z = 15;
+            }
 
-        if (Input.GetMouseButtonUp(0) && rb.velocity.y == 0 && rb.velocity.x == 0)
-        {
-            endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
-            endPoint.z = 15;
+            if (Input.GetMouseButton(0))
+            {
+                Vector3 currentPoint = cam.ScreenToWorldPoint(Input.mousePosition);
+                currentPoint.z = 15;
+                tl.RenderLine(startPoint, currentPoint);
+            }
 
-            force = new Vector2(Mathf.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x), Mathf.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y));
-            rb.AddForce(force * power, ForceMode2D.Impulse);
-            tl.EndLine();
-            par += 1; //Adds 1 to par on hit
-            parText.text = "Par: " + par;
-            parBGText.text = "Par: " + par;
+            if (Input.GetMouseButtonUp(0))
+            {
+                endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
+                endPoint.z = 15;
+
+                force = new Vector2(Mathf.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x), Mathf.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y));
+                rb.AddForce(force * power, ForceMode2D.Impulse);
+                tl.EndLine();
+                par += 1; //Adds 1 to par on hit
+                parText.text = "Par: " + par;
+                parBGText.text = "Par: " + par;
+            }
         }
     }
 }
