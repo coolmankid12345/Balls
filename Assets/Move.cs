@@ -58,8 +58,10 @@ public class Move : MonoBehaviour
                 endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
                 endPoint.z = 15;
 
-                force = new Vector2(Mathf.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x), Mathf.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y));
-                rb.AddForce(force * power, ForceMode2D.Impulse);
+                force = new Vector2(Mathf.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x), Mathf.Clamp((startPoint.y - endPoint.y), minPower.y, maxPower.y))*power;
+                // old force = new Vector2(Mathf.Clamp((startPoint.x - endPoint.x), minPower.x, maxPower.x), Mathf.Clamp((startPoint.y - endPoint.y), minPower.y, maxPower.y));
+                rb.AddForce(force, ForceMode2D.Impulse);
+                // old rb.AddForce(force * power, ForceMode2D.Impulse);
                 tl.EndLine();
                 par += 1; //Adds 1 to par on hit
                 parText.text = "Par: " + par;
