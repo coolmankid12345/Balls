@@ -9,8 +9,8 @@ public class Move : MonoBehaviour
     public float power = 10f;
     public Rigidbody2D rb;
 
-    public Vector2 maxPower;
-    public Vector2 minPower;
+    //public Vector2 maxPower;
+    //public Vector2 minPower;
 
     public Line tl;
 
@@ -32,6 +32,9 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
+
         if ((Math.Abs(rb.velocity.x) <= .05) && (Math.Abs(rb.velocity.y) <= .0001)) //Fake friction
         {
             rb.velocity = new Vector2(0, 0);
@@ -42,7 +45,7 @@ public class Move : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
+                startPoint = rb.transform.position;
                 startPoint.z = 15;
             }
 
@@ -57,10 +60,10 @@ public class Move : MonoBehaviour
             {
                 endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
                 endPoint.z = 15;
-
-                force = new Vector2(Mathf.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x), Mathf.Clamp((startPoint.y - endPoint.y), minPower.y, maxPower.y))*power;
+                force = new Vector2((rb.transform.position.x - endPoint.x), (rb.transform.position.y - endPoint.y));
+                angle = new Vector2.
                 // old force = new Vector2(Mathf.Clamp((startPoint.x - endPoint.x), minPower.x, maxPower.x), Mathf.Clamp((startPoint.y - endPoint.y), minPower.y, maxPower.y));
-                rb.AddForce(force, ForceMode2D.Impulse);
+                rb.AddForce(force*power, ForceMode2D.Impulse);
                 // old rb.AddForce(force * power, ForceMode2D.Impulse);
                 tl.EndLine();
                 par += 1; //Adds 1 to par on hit
