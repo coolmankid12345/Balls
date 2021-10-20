@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class Move : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class Move : MonoBehaviour
     public Vector2 minPower;
 
     public Line tl;
+
+    public int par = 0; //PAAAAR
+    public Text parText;
+    public Text parBGText;
 
     Camera cam;
     Vector2 force;
@@ -27,7 +32,7 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((Math.Abs(rb.velocity.x) <= .01)&& (Math.Abs(rb.velocity.y) <= .0001)) //Fake friction
+        if((Math.Abs(rb.velocity.x) <= .05)&& (Math.Abs(rb.velocity.y) <= .0001)) //Fake friction
         {
             rb.velocity = new Vector2(0,0);
 
@@ -53,6 +58,9 @@ public class Move : MonoBehaviour
             force = new Vector2(Mathf.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x), Mathf.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y));
             rb.AddForce(force * power, ForceMode2D.Impulse);
             tl.EndLine();
+            par += 1; //Adds 1 to par on hit
+            parText.text = "Par: " + par;
+            parBGText.text = "Par: " + par;
         }
     }
 }
