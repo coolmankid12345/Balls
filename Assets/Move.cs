@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Move : MonoBehaviour
 {
@@ -26,6 +27,11 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if((Math.Abs(rb.velocity.x) <= .01)&& (Math.Abs(rb.velocity.y) <= .0001)) //Fake friction
+        {
+            rb.velocity = new Vector2(0,0);
+
+        }
         if (Input.GetMouseButtonDown(0) && rb.velocity.y == 0 && rb.velocity.x == 0) 
         {
             startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
