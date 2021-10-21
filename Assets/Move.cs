@@ -9,8 +9,15 @@ public class Move : MonoBehaviour
     public float power = 10f;
     public Rigidbody2D rb;
 
+<<<<<<< Updated upstream
     //public Vector2 maxPower;
     //public Vector2 minPower;
+=======
+    public float maxPower;
+    public float minPower;
+    public float force;
+
+>>>>>>> Stashed changes
 
     public Line tl;
 
@@ -19,7 +26,7 @@ public class Move : MonoBehaviour
     public Text parBGText;
 
     Camera cam;
-    Vector2 force;
+    
     Vector3 startPoint;
     Vector3 endPoint;
     // Start is called before the first frame update
@@ -51,19 +58,31 @@ public class Move : MonoBehaviour
 
             if (Input.GetMouseButton(0))
             {
+                
                 Vector3 currentPoint = cam.ScreenToWorldPoint(Input.mousePosition);
                 currentPoint.z = 15;
                 tl.RenderLine(startPoint, currentPoint);
+                
+                
             }
 
             if (Input.GetMouseButtonUp(0))
             {
+                
                 endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
                 endPoint.z = 15;
+<<<<<<< Updated upstream
                 force = new Vector2((rb.transform.position.x - endPoint.x), (rb.transform.position.y - endPoint.y));
                 //angle = new Vector2.
                 // old force = new Vector2(Mathf.Clamp((startPoint.x - endPoint.x), minPower.x, maxPower.x), Mathf.Clamp((startPoint.y - endPoint.y), minPower.y, maxPower.y));
                 rb.AddForce(force*power, ForceMode2D.Impulse);
+=======
+                float distance = Vector2.Distance(startPoint, endPoint);
+                force = Mathf.Clamp(distance, minPower, maxPower);
+                Vector3 dir = (startPoint - endPoint).normalized;
+                // old force = new Vector2(Mathf.Clamp((startPoint.x - endPoint.x), minPower.x, maxPower.x), Mathf.Clamp((startPoint.y - endPoint.y), minPower.y, maxPower.y));
+                rb.AddForce(dir * (force * power), ForceMode2D.Impulse);
+>>>>>>> Stashed changes
                 // old rb.AddForce(force * power, ForceMode2D.Impulse);
                 tl.EndLine();
                 par += 1; //Adds 1 to par on hit
