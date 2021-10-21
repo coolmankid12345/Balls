@@ -55,29 +55,29 @@ public class Move : MonoBehaviour
 
             if (Input.GetMouseButton(0))
             {
-
                 Vector3 currentPoint = cam.ScreenToWorldPoint(Input.mousePosition);
                 currentPoint.z = 15;
 
-
-                //need to solve newP figure out how to create new Vector3
-                /* ////////////////////need to fix errors but pretty clean so far
-                if (Vector3.Distance(startPoint, currentPoint) > maxPower)
+                /////////////////////////This is all an attempt to max out the line after the distance equivalent to maxPower
+                /*if (Vector3.Distance(startPoint, currentPoint) > maxPower) //Note currently 
                 {
-                    Vector3 deltaP = startPoint - currentPoint; //This is the change in position
-                    Vector3 newP = (maxPower* Math.Pow(Math.Cos(Math.Atan(deltaP.y / deltaP.x)), 2), maxPower* Math.Pow(Math.Sin(Math.Atan(deltaP.y / deltaP.x)), 2), 15d); //Calculate new cordinate for line
+                    Vector2 deltaP = new Vector2((startPoint.x - currentPoint.x), (startPoint.y - currentPoint.y)); //This is the change in position
+                    float newX = (float)(maxPower * Math.Pow(Math.Cos(Math.Atan(deltaP.y / deltaP.x)), 2)) + startPoint.x;
+                    float newY = (float)(maxPower * Math.Pow(Math.Sin(Math.Atan(deltaP.y / deltaP.x)), 2)) + startPoint.y;
+                    currentPoint = new Vector3(newX, newY, 15);
+                    /*This still needs to be fixed not sure why it doesn't work
                     if (deltaP.x < 0) //Fix X cord if neg
                     {
-                        newP.x = 0 - newP.x;
+                        currentPoint.x = newX - (2*(startPoint.x));
                     }
                     if (deltaP.y < 0) //Fix Y cord if neg
                     {
-                        newP.y = 0 - newP.y;
+                        currentPoint.y = newY - (2*(startPoint.y));
                     }
-                    currentPoint = newP;
+                    
                 }
                 */
-
+                ///////////////////////////////////////////////////////////////////
                 tl.RenderLine(startPoint, currentPoint);
             }
 
