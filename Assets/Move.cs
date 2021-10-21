@@ -55,12 +55,30 @@ public class Move : MonoBehaviour
 
             if (Input.GetMouseButton(0))
             {
-                
+
                 Vector3 currentPoint = cam.ScreenToWorldPoint(Input.mousePosition);
                 currentPoint.z = 15;
+
+
+                //need to solve newP figure out how to create new Vector3
+                /* ////////////////////need to fix errors but pretty clean so far
+                if (Vector3.Distance(startPoint, currentPoint) > maxPower)
+                {
+                    Vector3 deltaP = startPoint - currentPoint; //This is the change in position
+                    Vector3 newP = (maxPower* Math.Pow(Math.Cos(Math.Atan(deltaP.y / deltaP.x)), 2), maxPower* Math.Pow(Math.Sin(Math.Atan(deltaP.y / deltaP.x)), 2), 15d); //Calculate new cordinate for line
+                    if (deltaP.x < 0) //Fix X cord if neg
+                    {
+                        newP.x = 0 - newP.x;
+                    }
+                    if (deltaP.y < 0) //Fix Y cord if neg
+                    {
+                        newP.y = 0 - newP.y;
+                    }
+                    currentPoint = newP;
+                }
+                */
+
                 tl.RenderLine(startPoint, currentPoint);
-                
-                
             }
 
             if (Input.GetMouseButtonUp(0))
