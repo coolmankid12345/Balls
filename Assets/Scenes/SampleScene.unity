@@ -1206,6 +1206,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5010699273556649139, guid: fb979b8ffc0b29f4996cc765cca52515,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 49.450005
+      objectReference: {fileID: 0}
+    - target: {fileID: 5010699273556649139, guid: fb979b8ffc0b29f4996cc765cca52515,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.71
+      objectReference: {fileID: 0}
     - target: {fileID: 5010699274023616209, guid: fb979b8ffc0b29f4996cc765cca52515,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1265,6 +1275,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Porch
+      objectReference: {fileID: 0}
+    - target: {fileID: 5010699274285300172, guid: fb979b8ffc0b29f4996cc765cca52515,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 54.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5010699274285300172, guid: fb979b8ffc0b29f4996cc765cca52515,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.5881042
+      objectReference: {fileID: 0}
+    - target: {fileID: 5010699275492188220, guid: fb979b8ffc0b29f4996cc765cca52515,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 62.350002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5010699275492188220, guid: fb979b8ffc0b29f4996cc765cca52515,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.43
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb979b8ffc0b29f4996cc765cca52515, type: 3}
