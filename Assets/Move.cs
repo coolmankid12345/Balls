@@ -12,7 +12,8 @@ public class Move : MonoBehaviour
     public float maxPower;
     public float minPower;
     public float force;
-
+    public float test;///////
+    /// </summary>
 
     public Line tl;
 
