@@ -14,7 +14,6 @@ public class Move : MonoBehaviour
     public float force;
 
 
-
     public Line tl;
 
     public int par = 0; //PAAAAR
@@ -51,6 +50,7 @@ public class Move : MonoBehaviour
                 startPoint = rb.transform.position;
                 startPoint.z = 15;
             }
+
 
             if (Input.GetMouseButton(0))
             {
