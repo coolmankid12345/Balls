@@ -2156,8 +2156,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0470a7b1d33cad848b9d5cf3a786cac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 0.5
+  power: 3
   rb: {fileID: 1978092683}
+  maxPower: 3
+  minPower: 0
+  force: 0
   tl: {fileID: 0}
   par: 0
   parText: {fileID: 672779451}
