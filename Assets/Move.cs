@@ -21,6 +21,8 @@ public class Move : MonoBehaviour
     public Text parText;
     public Text parBGText;
 
+    public Vector2 lastPlayerPos; //testing
+
     Camera cam;
     
     Vector3 startPoint;
@@ -36,13 +38,10 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        
-
         if ((Math.Abs(rb.velocity.x) <= .05) && (Math.Abs(rb.velocity.y) <= .0001)) //Fake friction
         {
             rb.velocity = new Vector2(0, 0);
-
+            lastPlayerPos = rb.transform.position;//testing
         }
 
         if (rb.velocity.y == 0 && rb.velocity.x == 0)

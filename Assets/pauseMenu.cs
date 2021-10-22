@@ -7,11 +7,18 @@ public class pauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
 
     public GameObject pauseMenuUI;
+    //public Rigidbody2D rb;
+    //Move test;
+
+    //private void Start()
+    //{
+    //    test = GetComponent<Move>();
+    //}
 
     // Update is called once per frame
     void Update()
     {
-
+        //Debug.Log("Update");
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPaused)
@@ -55,13 +62,21 @@ public class pauseMenu : MonoBehaviour
         Application.Quit();
     }
 
-    void VolumeUp()
+    public void VolumeUp()
     {
         
     }
 
-    void VolumeDown()
+    public void VolumeDown()
     {
 
     }
+
+    /*
+    public void ResetPos()
+    {
+        rb.velocity.Set(0, 0);
+        rb.position.Set(test.lastPlayerPos.x, test.lastPlayerPos.y);
+    }
+    */
 }
