@@ -118,8 +118,8 @@ public class Move : MonoBehaviour
                 // old rb.AddForce(force * power, ForceMode2D.Impulse);
                 tl.EndLine();
                 par += 1; //Adds 1 to par on hit
-                parText.text = "Par: " + par;
-                parBGText.text = "Par: " + par;
+                parText.text = "Shots: " + par;
+                parBGText.text = "Shots: " + par;
             }
         }
     }
