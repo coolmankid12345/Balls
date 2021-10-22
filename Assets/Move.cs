@@ -57,7 +57,6 @@ public class Move : MonoBehaviour
             {
                 Vector3 currentPoint = cam.ScreenToWorldPoint(Input.mousePosition);
                 currentPoint.z = 15;
-
                 /////////////////////////This is all an attempt to max out the line after the distance equivalent to maxPower
                 /*if (Vector3.Distance(startPoint, currentPoint) > maxPower) //Note currently 
                 {
