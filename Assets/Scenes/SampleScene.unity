@@ -2110,8 +2110,8 @@ MonoBehaviour:
   test: 0
   tl: {fileID: 0}
   par: 0
-  parText: {fileID: 0}
-  parBGText: {fileID: 0}
+  parText: {fileID: 672779451}
+  parBGText: {fileID: 750117696}
 --- !u!114 &1978092690
 MonoBehaviour:
   m_ObjectHideFlags: 0

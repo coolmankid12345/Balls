@@ -46,40 +46,46 @@ public class Move : MonoBehaviour
 
         if (rb.velocity.y == 0 && rb.velocity.x == 0)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                startPoint = rb.transform.position;
-                startPoint.z = 15;
-            }
+            
 
 
             if (Input.GetMouseButton(0))
             {
+                startPoint = rb.transform.position;
+                startPoint.z = 15;
                 Vector3 currentPoint = cam.ScreenToWorldPoint(Input.mousePosition);
                 currentPoint.z = 15;
-                /////////////////////////This is all an attempt to max out the line after the distance equivalent to maxPower
-                /*if (Vector3.Distance(startPoint, currentPoint) > maxPower) //Note currently 
+
+                if(Vector3.Distance(startPoint, currentPoint) > maxPower)
                 {
-                    Vector2 deltaP = new Vector2((startPoint.x - currentPoint.x), (startPoint.y - currentPoint.y)); //This is the change in position
-                    float newX = (float)(maxPower * Math.Pow(Math.Cos(Math.Atan(deltaP.y / deltaP.x)), 2)) + startPoint.x;
-                    float newY = (float)(maxPower * Math.Pow(Math.Sin(Math.Atan(deltaP.y / deltaP.x)), 2)) + startPoint.y;
-                    currentPoint = new Vector3(newX, newY, 15);
-                    /*This still needs to be fixed not sure why it doesn't work
-                    if (deltaP.x < 0) //Fix X cord if neg
-                    {
-                        currentPoint.x = newX - (2*(startPoint.x));
-                    }
-                    if (deltaP.y < 0) //Fix Y cord if neg
-                    {
-                        currentPoint.y = newY - (2*(startPoint.y));
-                    }
-                    
+                    Vector3 dir = currentPoint - startPoint;
+                    float dist = Mathf.Clamp(Vector3.Distance(startPoint, endPoint), 0, maxPower);
+                    currentPoint = startPoint + (dir.normalized * dist);
                 }
+                
+                /////////////////////////This is all an attempt to max out the line after the distance equivalent to maxPower
+                /* if (Vector3.Distance(startPoint, currentPoint) > maxPower) //Note currently 
+                 {
+                     Vector2 deltaP = new Vector2((startPoint.x - currentPoint.x), (startPoint.y - currentPoint.y)); //This is the change in position
+                     float newX = (float)(maxPower * Math.Pow(Math.Cos(Math.Atan(deltaP.y / deltaP.x)), 2)) + startPoint.x;
+                     float newY = (float)(maxPower * Math.Pow(Math.Sin(Math.Atan(deltaP.y / deltaP.x)), 2)) + startPoint.y;
+                     currentPoint = new Vector3(newX, newY, 15);
+                     //This still needs to be fixed not sure why it doesn't work
+                     if (deltaP.x < 0) //Fix X cord if neg
+                     {
+                         currentPoint.x = newX - (2*(startPoint.x));
+                     }
+                     if (deltaP.y < 0) //Fix Y cord if neg
+                     {
+                         currentPoint.y = newY - (2*(startPoint.y));
+                     }
+                     
+            }
                 */
                 ///////////////////////////////////////////////////////////////////
-                tl.RenderLine(startPoint, currentPoint);
+                tl.RenderLine(startPoint, currentPoint); 
             }
-
+                
             if (Input.GetMouseButtonUp(0))
             {
                 
