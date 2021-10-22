@@ -14,7 +14,7 @@ public class Move : MonoBehaviour
     public float force;
     public float test;///////
     /// </summary>
-
+     bool cancel;
     public Line tl;
 
     public int par = 0; //PAAAAR
@@ -25,6 +25,7 @@ public class Move : MonoBehaviour
     
     Vector3 startPoint;
     Vector3 endPoint;
+    Vector3 currentPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,10 +47,22 @@ public class Move : MonoBehaviour
 
         if (rb.velocity.y == 0 && rb.velocity.x == 0)
         {
-            
-
-
-            if (Input.GetMouseButton(0))
+            if (cancel == true)
+            {
+                startPoint = rb.transform.position;
+                currentPoint = rb.transform.position;
+                tl.RenderLine(startPoint, currentPoint);
+            }
+            //Clicking resets cancel but pressing right click cancels shot
+            if(Input.GetMouseButtonDown(0))
+            {
+                cancel = false;
+            }
+            if(Input.GetMouseButtonDown(1))
+            {
+                cancel = true;
+            }
+            if (Input.GetMouseButton(0) && !cancel)
             {
                 startPoint = rb.transform.position;
                 startPoint.z = 15;
@@ -86,7 +99,7 @@ public class Move : MonoBehaviour
                 tl.RenderLine(startPoint, currentPoint); 
             }
                 
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0) && !cancel)
             {
                 
                 endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
