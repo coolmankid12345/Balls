@@ -38,9 +38,14 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((Math.Abs(rb.velocity.x) <= .05) && (Math.Abs(rb.velocity.y) <= .0001)) //Fake friction
+        if ((Math.Abs(rb.velocity.x) <= 1) && (Math.Abs(rb.velocity.y) <= .0001)) //more fake friction before
         {
-            rb.velocity = new Vector2(0, 0);
+            rb.velocity = rb.velocity * (float).99;
+        }
+
+        if ((Math.Abs(rb.velocity.x) <= .05) && (Math.Abs(rb.velocity.y) <= .0001)) //Fake stop
+        {
+            rb.velocity = new Vector2(0,0);
             lastPlayerPos = rb.transform.position;//testing
         }
 

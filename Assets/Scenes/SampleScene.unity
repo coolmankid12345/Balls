@@ -2125,7 +2125,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 3
+  m_AngularDrag: 1
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 118d15ccfa3f060459064f1b64183bf6, type: 2}
   m_Interpolate: 0
@@ -2206,7 +2206,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978092682}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.67, y: 1.78, z: -0.32226562}
+  m_LocalPosition: {x: 8.6, y: 2.5, z: -0.32226562}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2679,6 +2679,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7077038718935259753, guid: 02f9c6c1e4cba2d44beaa281d9556c6c,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[9].x
+      value: 1.9236684
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077038718935259753, guid: 02f9c6c1e4cba2d44beaa281d9556c6c,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[9].y
+      value: 1.2801437
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077038718935259753, guid: 02f9c6c1e4cba2d44beaa281d9556c6c,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[10].y
+      value: 1.280144
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077038718935259753, guid: 02f9c6c1e4cba2d44beaa281d9556c6c,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[10].x
+      value: -0.2881832
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077038718935259753, guid: 02f9c6c1e4cba2d44beaa281d9556c6c,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
+      value: 2.353554
+      objectReference: {fileID: 0}
     - target: {fileID: 7077038719039815580, guid: 02f9c6c1e4cba2d44beaa281d9556c6c,
         type: 3}
       propertyPath: m_LocalRotation.z
