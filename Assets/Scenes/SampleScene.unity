@@ -2206,7 +2206,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978092682}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 177.5, y: 28.1, z: -0.32226562}
+  m_LocalPosition: {x: 86.25, y: 28.1, z: -0.32226562}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2711,19 +2711,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 144636434, guid: 60e63c30053f4034fa62bd84981d3e49, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.7662
-      objectReference: {fileID: 0}
-    - target: {fileID: 144636434, guid: 60e63c30053f4034fa62bd84981d3e49, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.9978757
-      objectReference: {fileID: 0}
-    - target: {fileID: 2542986376881975255, guid: 60e63c30053f4034fa62bd84981d3e49,
-        type: 3}
-      propertyPath: m_Name
-      value: RoofSlantPiece
-      objectReference: {fileID: 0}
     - target: {fileID: 2775524677060357683, guid: 60e63c30053f4034fa62bd84981d3e49,
         type: 3}
       propertyPath: m_Name
