@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5010699273556649148}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 3.58, y: -5.71, z: 583.5643}
+  m_LocalPosition: {x: 49.450005, y: -5.71, z: 583.5643}
   m_LocalScale: {x: 1.5840987, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5010699274023616209}
@@ -189,7 +189,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5010699274285300173}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.93, y: -4.5881042, z: 583.5643}
+  m_LocalPosition: {x: 54.8, y: -4.5881042, z: 583.5643}
   m_LocalScale: {x: 14.2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5010699274023616209}
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 5010699275492188210}
   - component: {fileID: 5010699275492188211}
   m_Layer: 0
-  m_Name: PorchTop (1)
+  m_Name: PorchTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -317,8 +317,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5010699275492188221}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 16.48, y: -5.43, z: 583.5643}
-  m_LocalScale: {x: 4.8, y: 1, z: 1}
+  m_LocalPosition: {x: 62.350002, y: -7.266, z: 583.5643}
+  m_LocalScale: {x: 8.47193, y: 1.0000006, z: 1}
   m_Children: []
   m_Father: {fileID: 5010699274023616209}
   m_RootOrder: 2
