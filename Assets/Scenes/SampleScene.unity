@@ -2691,6 +2691,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 144636434, guid: 60e63c30053f4034fa62bd84981d3e49, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.7662
+      objectReference: {fileID: 0}
+    - target: {fileID: 144636434, guid: 60e63c30053f4034fa62bd84981d3e49, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9978757
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542986376881975255, guid: 60e63c30053f4034fa62bd84981d3e49,
+        type: 3}
+      propertyPath: m_Name
+      value: RoofSlantPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 2775524677060357683, guid: 60e63c30053f4034fa62bd84981d3e49,
         type: 3}
       propertyPath: m_Name
