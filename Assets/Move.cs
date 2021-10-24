@@ -4,19 +4,21 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 
+
 public class Move : MonoBehaviour
 {
     public float power = 10f;
     public Rigidbody2D rb;
-
+    public Animator Ham;
     public float maxPower;
     public float minPower;
     public float force;
     public float test;///////
     /// </summary>
      bool cancel;
+    float whichIdle;
     public Line tl;
-
+    bool idle = false;
     public int par = 0; //PAAAAR
     public Text parText;
     public Text parBGText;
@@ -38,6 +40,7 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if ((Math.Abs(rb.velocity.x) <= 1) && (Math.Abs(rb.velocity.y) <= .0001)) //more fake friction before
         {
             rb.velocity = rb.velocity * (float).99;
@@ -48,9 +51,26 @@ public class Move : MonoBehaviour
             rb.velocity = new Vector2(0,0);
             lastPlayerPos = rb.transform.position;//testing
         }
-
+        
         if (rb.velocity.y == 0 && rb.velocity.x == 0)
         {
+            StopCoroutine("Cry");
+            Ham.SetBool("Cry", false);
+            if (!idle && rb.velocity.y == 0 && rb.velocity.x == 0)
+            {          
+                Ham.SetBool("Scared", false);
+                Ham.SetBool("Default", true);
+                StartCoroutine("Idle");
+            }
+            else
+            {
+                idle = false;
+                Ham.SetBool("Idle1", false);
+                Ham.SetBool("Idle2", false);
+                Ham.SetBool("Idle3", false);
+                StopCoroutine("Idle");
+
+            }
             if (cancel == true)
             {
                 startPoint = rb.transform.position;
@@ -73,10 +93,10 @@ public class Move : MonoBehaviour
                 Vector3 currentPoint = cam.ScreenToWorldPoint(Input.mousePosition);
                 currentPoint.z = 15;
 
-                if(Vector3.Distance(startPoint, currentPoint) > maxPower)
+                if(Vector2.Distance(startPoint, currentPoint) > maxPower)
                 {
                     Vector3 dir = currentPoint - startPoint;
-                    float dist = Mathf.Clamp(Vector3.Distance(startPoint, endPoint), 0, maxPower);
+                    float dist = Mathf.Clamp(Vector2.Distance(startPoint, endPoint), 0, maxPower);
                     currentPoint = startPoint + (dir.normalized * dist);
                 }
                 
@@ -108,7 +128,13 @@ public class Move : MonoBehaviour
                 
                 endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
                 endPoint.z = 15;
-
+                StopCoroutine("Idle");
+                Ham.SetBool("Default", false);
+                Ham.SetBool("Idle1", false);
+                Ham.SetBool("Idle2", false);
+                Ham.SetBool("Idle3", false);
+                Ham.SetBool("Scared", true);
+                idle = false;
                 float distance = Vector2.Distance(startPoint, endPoint);
                 force = Mathf.Clamp(distance, minPower, maxPower);
                 Vector3 dir = (startPoint - endPoint).normalized;
@@ -122,5 +148,43 @@ public class Move : MonoBehaviour
                 parBGText.text = "Shots: " + par;
             }
         }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Hit");
+        
+        StopCoroutine("Wait");
+        Ham.SetBool("Cry", true);
+        StartCoroutine("Wait");
+        
+    }
+  
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Ham.SetBool("Cry", false);
+        StopCoroutine("Wait");
+        
+    }
+    IEnumerator Idle()
+    {
+        yield return new WaitForSeconds(10f);
+        whichIdle = UnityEngine.Random.Range(1, 3);
+        if (whichIdle == 1)
+        {
+            Ham.SetBool("Idle1", true);
+        }
+        if (whichIdle == 2)
+        {
+            Ham.SetBool("Idle2", true);
+        }
+        if (whichIdle == 3)
+        {
+            Ham.SetBool("Idle3", true);
+        }
+
+        idle = true;
+        Ham.SetBool("Default", false);
+        StopCoroutine("Idle");
     }
 }

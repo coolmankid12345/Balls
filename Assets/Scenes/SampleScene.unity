@@ -2815,6 +2815,7 @@ GameObject:
   - component: {fileID: 1978092683}
   - component: {fileID: 1978092690}
   - component: {fileID: 1978092685}
+  - component: {fileID: 1978092686}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2909,6 +2910,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1978092686
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978092682}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2ca3f98158c6dee4cb757bcc2a2f0859, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1978092687
 Transform:
   m_ObjectHideFlags: 0
@@ -3041,6 +3061,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: 4
   rb: {fileID: 1978092683}
+  Ham: {fileID: 1978092686}
   maxPower: 3
   minPower: 0
   force: 0
@@ -3444,6 +3465,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1060396150, guid: 60e63c30053f4034fa62bd84981d3e49, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060396150, guid: 60e63c30053f4034fa62bd84981d3e49, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2775524677060357683, guid: 60e63c30053f4034fa62bd84981d3e49,
         type: 3}
       propertyPath: m_Name
