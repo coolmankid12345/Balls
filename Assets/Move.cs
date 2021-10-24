@@ -54,7 +54,7 @@ public class Move : MonoBehaviour
         
         if (rb.velocity.y == 0 && rb.velocity.x == 0)
         {
-            StopCoroutine("Cry");
+           /* StopCoroutine("Cry");
             Ham.SetBool("Cry", false);
             if (!idle && rb.velocity.y == 0 && rb.velocity.x == 0)
             {          
@@ -70,7 +70,7 @@ public class Move : MonoBehaviour
                 Ham.SetBool("Idle3", false);
                 StopCoroutine("Idle");
 
-            }
+            }*/
             if (cancel == true)
             {
                 startPoint = rb.transform.position;
@@ -128,13 +128,13 @@ public class Move : MonoBehaviour
                 
                 endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
                 endPoint.z = 15;
-                StopCoroutine("Idle");
+                /*StopCoroutine("Idle");
                 Ham.SetBool("Default", false);
                 Ham.SetBool("Idle1", false);
                 Ham.SetBool("Idle2", false);
                 Ham.SetBool("Idle3", false);
                 Ham.SetBool("Scared", true);
-                idle = false;
+                idle = false;*/
                 float distance = Vector2.Distance(startPoint, endPoint);
                 force = Mathf.Clamp(distance, minPower, maxPower);
                 Vector3 dir = (startPoint - endPoint).normalized;
@@ -149,7 +149,7 @@ public class Move : MonoBehaviour
             }
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+  /*  private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Hit");
         
@@ -186,5 +186,5 @@ public class Move : MonoBehaviour
         idle = true;
         Ham.SetBool("Default", false);
         StopCoroutine("Idle");
-    }
+    } */
 }
