@@ -96,7 +96,7 @@ public class Move : MonoBehaviour
                 if(Vector2.Distance(startPoint, currentPoint) > maxPower)
                 {
                     Vector3 dir = currentPoint - startPoint;
-                    float dist = Mathf.Clamp(Vector2.Distance(startPoint, endPoint), 0, maxPower);
+                    float dist = Mathf.Clamp(Vector2.Distance(startPoint, currentPoint), 0, maxPower);
                     currentPoint = startPoint + (dir.normalized * dist);
                 }
                 
