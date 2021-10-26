@@ -16,6 +16,7 @@ public class Move : MonoBehaviour
     public float test;///////
     /// </summary>
      bool cancel;
+    bool gameStart = false;
     float whichIdle;
     public Line tl;
     bool idle = false;
@@ -35,6 +36,7 @@ public class Move : MonoBehaviour
     {
         cam = Camera.main;
         tl = GetComponent<Line>();
+        StartCoroutine("GameStart");
     }
 
     // Update is called once per frame
@@ -151,13 +153,17 @@ public class Move : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (gameStart)
+        {
 
             Debug.Log("Hit");
-
             StopCoroutine("Wait");
             Ham.SetBool("Cry", true);
             StartCoroutine("Wait");
-        
+        }
+        else {
+            Ham.SetBool("Scared", true);
+        }
     }
   
     IEnumerator Wait()
@@ -189,5 +195,10 @@ public class Move : MonoBehaviour
         StopCoroutine("Idle");
     } 
 
-   
+   IEnumerator GameStart()
+    {
+        yield return new WaitForSeconds(5f);
+        gameStart = true;
+        StopCoroutine("GameStart");
+    }
 }
