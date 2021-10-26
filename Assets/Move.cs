@@ -162,7 +162,7 @@ public class Move : MonoBehaviour
   
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(.5f);
         Ham.SetBool("Cry", false);
         StopCoroutine("Wait");
         
