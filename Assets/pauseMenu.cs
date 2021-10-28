@@ -5,15 +5,17 @@ using UnityEngine;
 public class pauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
+    public AudioSource BGM;
 
     public GameObject pauseMenuUI;
     //public Rigidbody2D rb;
     //Move test;
 
-    //private void Start()
-    //{
-    //    test = GetComponent<Move>();
-    //}
+    private void Start()
+    {
+        //test = GetComponent<Move>();
+        Time.timeScale = 1.5f;
+    }
 
     // Update is called once per frame
     void Update()
@@ -31,18 +33,11 @@ public class pauseMenu : MonoBehaviour
             }
         }
     }
-    
-    /*
-    void Start()
-    {
-        PausePanel.SetActive(false);
-    }
-    */
 
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
+        Time.timeScale = 1.5f;
         GameIsPaused = false;
     }
 
@@ -64,12 +59,12 @@ public class pauseMenu : MonoBehaviour
 
     public void VolumeUp()
     {
-        
+        BGM.volume += (float).01;
     }
 
     public void VolumeDown()
     {
-
+        BGM.volume -= (float).01;
     }
 
     /*

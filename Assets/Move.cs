@@ -88,7 +88,7 @@ public class Move : MonoBehaviour
             {
                 cancel = true;
             }
-            if (Input.GetMouseButton(0) && !cancel)
+            if (Input.GetMouseButton(0) && !cancel && Time.timeScale != 0f)//Fixed bug for clicking while paused
             {
                 startPoint = rb.transform.position;
                 startPoint.z = 15;
@@ -125,7 +125,7 @@ public class Move : MonoBehaviour
                 tl.RenderLine(startPoint, currentPoint); 
             }
                 
-            if (Input.GetMouseButtonUp(0) && !cancel)
+            if (Input.GetMouseButtonUp(0) && !cancel && Time.timeScale != 0f)//Fixed bug for clicking while paused
             {
                 
                 endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
